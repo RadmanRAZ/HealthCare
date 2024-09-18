@@ -89,7 +89,11 @@ const RegisterForm = ({ user }: { user: User }) => {
         identificationDocument: values.identificationDocument
           ? formData
           : undefined,
-        privacyConcent: values.privacyConsent,
+          privacyConcent: values.privacyConsent,
+        disclosureConsent : values.disclosureConsent,
+        treatmentConsent : values.treatmentConsent
+
+        
       };
 
       //@ts-ignore
