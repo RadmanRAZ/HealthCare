@@ -71,13 +71,13 @@ const AppointmentForm = ({
 
     switch (type) {
       case "schedule":
-        status = "scheduled";
+        status = "schedual";
         break;
       case "cancel":
-        status = "cacncelled";
+        status = "cancel";
         break;
       default:
-        status = "pending";
+        status = "pendding";
     }
 
     try {
@@ -93,10 +93,13 @@ const AppointmentForm = ({
         };
         const appointment = await createAppointment(appointmentPatient);
 
-        if(appointment) router.push(`/patients/${userId}/new-appointment/sucsess?appointmentId=${appointment.id}}`)
+        if(appointment) router.push(`/patients/${userId}/new-appointment/sucsess?appointmentId=${appointment.$id}}`)
       }
     } catch (error) {
       console.log(error);
+    }
+    finally{
+      setIsLoading(false)
     }
   }
 
