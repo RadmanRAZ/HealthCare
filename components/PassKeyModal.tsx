@@ -46,7 +46,7 @@ const PassKeyModal = () => {
         setOpen(false)
       }
       else{
-        setError("Invalid passkey , please try again")
+        setOpen(true)
       }
     }
 
