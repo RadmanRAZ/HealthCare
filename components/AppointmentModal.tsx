@@ -15,18 +15,16 @@ import AppointmentForm from "./forms/AppointmentForm";
 
 const AppointmentModal = ({
   type,
-  paitentId,
+  patientId,
   userId,
-  appointmentId,
-  title ,
-  description
+  appointment,
+ 
 }: {
   type: "schedule" | "cancel" | "create";
-  paitentId : string;
+  patientId : string;
   userId : string;
-  appointmentId : Appointment;
-  title : string;
-  description:string;
+  appointment : Appointment;
+  
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -49,9 +47,9 @@ const AppointmentModal = ({
         </DialogHeader>
         <AppointmentForm 
           userId={userId}
-          patientId={paitentId}
+          patientId={patientId}
           type={type}
-          appointment={appointmentId} 
+          appointment={appointment} 
           setOpen={setOpen}
         
         />

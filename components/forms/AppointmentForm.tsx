@@ -5,13 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+  Form
 } from "@/components/ui/shadcnForm";
 import { Input } from "@/components/ui/input";
 import CustomFormField from "../CustomFormField";
@@ -23,7 +17,7 @@ import { createUser } from "@/lib/actions/pation.action";
 import { Doctors } from "@/constance";
 import Image from "next/image";
 import { SelectItem } from "../ui/select";
-import { createAppointment } from "@/lib/actions/appointment.action";
+import { createAppointment, updateAppointment } from "@/lib/actions/appointment.action";
 import { getAppointmentSchema } from "@/lib/validation";
 import { Appointment } from "@/types/appwrite.types";
 UserFormValidation;
@@ -54,6 +48,8 @@ const AppointmentForm = ({
 }) => {
   const router = useRouter();
 
+  
+
   const [isLoading, setIsLoading] = useState(false);
 
   const AppointmetFormValidatoion = getAppointmentSchema(type)
@@ -71,6 +67,7 @@ const AppointmentForm = ({
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof AppointmetFormValidatoion>) {
+    console.log("im subititng")
     setIsLoading(true);
 
     let status;
@@ -112,6 +109,14 @@ const AppointmentForm = ({
           },
           type
 
+        }
+
+        const updateApointmetn = await updateAppointment(appointmentupdate)
+
+        if(updateApointmetn) {
+          setOpen && setOpen(false)
+          form.reset();
+          
         }
       }
 

@@ -16,7 +16,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Payment } from "./column";
 import { Button } from "../ui/button";
 
 interface DataTableProps<TData, TValue> {
